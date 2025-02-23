@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\obj\Debug\UMLEditor.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\bin\Debug\UML Editor.exe.config
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\bin\Debug\UML Editor.exe
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\bin\Debug\UML Editor.pdb
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\bin\Debug\MetroFramework.Design.dll
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\bin\Debug\MetroFramework.dll
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\obj\Debug\UMLEditor.UMLEditorForm.resources
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\obj\Debug\UMLEditor.Properties.Resources.resources
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\obj\Debug\UMLEditor.Views.Dialogs.RenameDialog.resources
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\obj\Debug\UMLEditor.csproj.GenerateResource.cache
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\obj\Debug\UMLEditor.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\obj\Debug\UMLEditor.csproj.CopyComplete
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\obj\Debug\UML Editor.exe
+C:\Users\User\Desktop\軟體工程\HW2\UMLEditor\UMLEditor\UMLEditor\obj\Debug\UML Editor.pdb
