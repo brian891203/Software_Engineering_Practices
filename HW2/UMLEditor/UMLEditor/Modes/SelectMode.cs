@@ -60,6 +60,9 @@ namespace UMLEditor.Modes
         {
             _mousePressedPoint = new Point(e.X, e.Y);
             _currentMousePoint = new Point(e.X, e.Y);
+
+            Console.WriteLine("Mouse pressed at: " + _mousePressedPoint.X + ", " + _mousePressedPoint.Y);
+
             Shape = GetPressedShape(_currentMousePoint);
 
             if (Shape != null)
@@ -106,6 +109,8 @@ namespace UMLEditor.Modes
                 }
             }
 
+            // Console.WriteLine("Mouse dragged to: " + e.X + ", " + e.Y);
+
             base.OnMouseDrag(sender, e);
         }
 
@@ -132,6 +137,8 @@ namespace UMLEditor.Modes
                 Shape pressedShape = GetPressedShape(new Point(e.X, e.Y));
                 if (pressedShape == null) DeselectAll();
             }
+
+            Console.WriteLine("Mouse released at: " + e.X + ", " + e.Y);
 
             base.OnMouseUp(sender, e);
         }
@@ -181,8 +188,9 @@ namespace UMLEditor.Modes
         private void MultipleSelect(Shape selectedArea)
         {
             Point p1 = new Point(selectedArea.X, selectedArea.Y);
-            Point p2 = new Point(selectedArea.X + selectedArea.Width, selectedArea.X + selectedArea.Height);
-
+            // Point p2 = new Point(selectedArea.X + selectedArea.Width, selectedArea.X + selectedArea.Height);
+            Point p2 = new Point(selectedArea.X + selectedArea.Width, selectedArea.Y + selectedArea.Height);
+            
             foreach (Shape shape in Canvas.Shapes)
             {
                 if (shape.IsWithin(p1, p2))
@@ -212,10 +220,19 @@ namespace UMLEditor.Modes
         /// <param name="selectedArea">The <see cref="SelectedArea"/> to be updated.</param>
         private void UpdateSelectedArea(Shape selectedArea)
         {
-            int left = _mousePressedPoint.X;
-            int top = _mousePressedPoint.Y;
-            int width = _currentMousePoint.X - _mousePressedPoint.X;
-            int height = _currentMousePoint.Y - _mousePressedPoint.Y;
+            // int left = _mousePressedPoint.X;
+            // int top = _mousePressedPoint.Y;
+            // int width = _currentMousePoint.X - _mousePressedPoint.X;
+            // int height = _currentMousePoint.Y - _mousePressedPoint.Y;
+
+            // Console.WriteLine("left: " + left + " top: " + top + " width: " + width + " height: " + height);
+
+            // Solved the bug of selecting from right to left or bottom to top
+            int left = Math.Min(_mousePressedPoint.X, _currentMousePoint.X);
+            int top = Math.Min(_mousePressedPoint.Y, _currentMousePoint.Y);
+            int width = Math.Abs(_currentMousePoint.X - _mousePressedPoint.X);
+            int height = Math.Abs(_currentMousePoint.Y - _mousePressedPoint.Y);
+
 
             selectedArea.SetLocation(left, top);
             selectedArea.SetSize(width, height);

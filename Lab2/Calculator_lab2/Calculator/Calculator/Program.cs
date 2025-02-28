@@ -18,7 +18,7 @@ namespace Calculator
 		[STAThread]
 		static void Main()
 		{
-			AllocConsole();  // for debugging
+			// AllocConsole();  // for debugging
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			// MessageBox.Show("New version：" + DateTime.Now.ToString());

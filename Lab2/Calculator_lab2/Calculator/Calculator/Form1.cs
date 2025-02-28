@@ -44,7 +44,8 @@ namespace Calculator
         private void addition_Click(object sender, EventArgs e)
         {
             Console.WriteLine("=== addition_Click ===");
-            if (textBox1.Text == "") return; // for solving bug5
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+                return; // for solving bug5
 
             if (currentNum == 1)
             {
@@ -99,7 +100,7 @@ namespace Calculator
         {
             if (textBox1.Text == "") return; // for solving bug5
 
-            if (currentNum == 1)
+            if (currentNum >= 1)
             {
                 num1 = Convert.ToDouble(textBox1.Text);
                 // multiplication.Enabled = false;
@@ -114,7 +115,7 @@ namespace Calculator
         {
             if (textBox1.Text == "") return; // for solving bug5
 
-            if (currentNum == 1)
+            if (currentNum >= 1)
             {
                 num1 = Convert.ToDouble(textBox1.Text);
                 // division.Enabled = false;
@@ -135,11 +136,11 @@ namespace Calculator
         private void Number1_Click(object sender, EventArgs e)
         {
             button_show();
-            // if (isUnclick) {
-            //     textBox1.Text = "";
-            //     textBox1.Text += "1";
-            //     return;
-            // }
+            if (currentNum == 1 && result != 0) { 
+                textBox1.Text = "";
+                textBox1.Text += "1";
+                return;
+            }
             // if (textBox1.Text != "") textBox1.Text += "1";
             textBox1.Text += "1";
         }
@@ -147,18 +148,23 @@ namespace Calculator
         private void Number2_Click(object sender, EventArgs e)
         {
             button_show();
-            // if (isUnclick) {
-            //     textBox1.Text = "";
-            //     textBox1.Text += "2";
-            //     return;
-            // }
+            if (currentNum == 1 && result != 0) { 
+                textBox1.Text = "";
+                textBox1.Text += "2";
+                return;
+            }
             textBox1.Text += "2";
         }
 
         private void Number3_Click(object sender, EventArgs e)
         {
-            textBox1.Text += "3";
             button_show();
+            if (currentNum == 1 && result != 0) { 
+                textBox1.Text = "";
+                textBox1.Text += "3";
+                return;
+            }
+            textBox1.Text += "3";
         }
 
         private void Number4_Click(object sender, EventArgs e)
@@ -210,6 +216,7 @@ namespace Calculator
 
         private void equals_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("=== equals_Click(object sender, EventArgs e) ===");
             Console.WriteLine("currentNum: " + currentNum);
 
             if (num2 == 0){
@@ -218,6 +225,10 @@ namespace Calculator
                 num1 = result;
             }  // for solving bug4
             // num2 = Convert.ToDouble(textBox1.Text);
+
+            Console.WriteLine("num1: " + num1);
+            Console.WriteLine("num2: " + num2);
+
             switch (op)
             {
                 case "+":
@@ -240,6 +251,9 @@ namespace Calculator
                     result = num1 / num2;
                     break;
             }
+
+            Console.WriteLine("result: " + result);
+
             textBox1.Text = Convert.ToString(result);
             currentNum++;
             return;
