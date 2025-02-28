@@ -1,6 +1,8 @@
-﻿using UMLEditor.Shapes;
+﻿using System;
+using UMLEditor.Shapes;
 using UMLEditor.Shapes.BasicObjects;
 using UMLEditor.Views;
+using UMLEditor.Shapes.ConnectionLines;
 
 namespace UMLEditor.Actions
 {
@@ -35,8 +37,15 @@ namespace UMLEditor.Actions
         {
             foreach (Shape shape in Canvas.SelectedShapes)
             {
+                Console.WriteLine("shape check : " + shape);
+                // If the shape is a line, then break the loop --> Solved the bug4
+                if (shape is Line) break;
+                
                 shape.DestroyAllCombinations();
+                Console.WriteLine("DestroyAllCombinations() check");
+
                 Canvas.RemoveShape(shape);
+                Console.WriteLine("RemoveShape() check");
             }
 
             base.Trigger();
