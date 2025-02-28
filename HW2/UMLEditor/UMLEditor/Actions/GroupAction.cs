@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using UMLEditor.Shapes;
 using UMLEditor.Shapes.BasicObjects;
 
@@ -27,6 +28,7 @@ namespace UMLEditor.Actions
         /// <seealso cref="UMLAction.Trigger()"/>
         public override void Trigger()
         {
+            Console.WriteLine("Grouping shapes...\n===  Trigger() ===");
             Shape[] selectedShapes = Canvas.SelectedShapes;
 
             if (selectedShapes.Length < 2)

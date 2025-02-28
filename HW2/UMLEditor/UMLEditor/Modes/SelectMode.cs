@@ -168,11 +168,13 @@ namespace UMLEditor.Modes
         /// </returns>
         private Shape GetPressedShape(Point point)
         {
+            Console.WriteLine("Canvas.GetShapeCount: " + Canvas.GetShapeCount());
             for (int i = Canvas.GetShapeCount() - 1; i >= 0; i--)
             {
                 Shape currentShape = Canvas.GetShape(i);
                 if (currentShape.IsCovers(point))
                 {
+                    Console.WriteLine("Shape pressed: " + currentShape);
                     return currentShape;
                 }
             }

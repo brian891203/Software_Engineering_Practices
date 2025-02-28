@@ -68,16 +68,28 @@ namespace UMLEditor.Shapes.BasicObjects
             return null;
         }
 
-        public override bool IsCovers(Point p)
-        {
-            if (IsSelected) return base.IsCovers(p);
+        // Do not need to override this method. Solve the problem that the group object cannot be selected.
+        // public override bool IsCovers(Point p)
+        // {
+        //     if (IsSelected) return base.IsCovers(p);
 
+        //     foreach (Shape shape in Shapes)
+        //     {
+        //         if (shape.IsCovers(p)) return true;
+        //     }
+
+        //     return false;
+        // }
+
+        public override void Move(int dx, int dy)
+        {
+            // Solved the problem that the group object cannot be moved.
             foreach (Shape shape in Shapes)
             {
-                if (shape.IsCovers(p)) return true;
+                shape.Move(dx, dy);
             }
 
-            return false;
+            base.Move(dx, dy);
         }
         
         /// <summary>
