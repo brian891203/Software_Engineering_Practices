@@ -53,6 +53,7 @@ namespace UMLEditor.Pseudo
             if (Line != null)
             {
                 Line.IsSelected = false;
+                Line.RemoveCombination(this);  // Remove the combination from the line. Solved the bug4
                 Canvas.GetInstance().RemoveShape(Line);
             }
         }

@@ -39,7 +39,7 @@ namespace UMLEditor.Actions
             {
                 Console.WriteLine("shape check : " + shape);
                 // If the shape is a line, then break the loop --> Solved the bug4
-                if (shape is Line) break;
+                // if (shape is Line) continue;
                 
                 shape.DestroyAllCombinations();
                 Console.WriteLine("DestroyAllCombinations() check");
