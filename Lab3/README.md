@@ -20,7 +20,7 @@ def test2():
 ˋˋˋ
 
 ˋˋˋ bash
-$ pytest -vv test_func.py
+pytest -vv test_func.py
 or
-$ pytest
+pytest
 ˋˋˋ
