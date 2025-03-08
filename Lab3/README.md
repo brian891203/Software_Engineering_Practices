@@ -19,8 +19,9 @@ def test2():
     assert add(1, 3) == 4
 ˋˋˋ
 
+
+
 ˋˋˋ bash
 pytest -vv test_func.py
-or
 pytest
 ˋˋˋ
