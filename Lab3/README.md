@@ -22,5 +22,5 @@ def test2():
 ˋˋˋ bash
 $ pytest -vv test_func.py
 or
-$pytest
+$ pytest
 ˋˋˋ
