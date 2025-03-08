@@ -11,7 +11,7 @@ $ pytest --help
 一個加法函數，並寫該函數的測試方法
 
 ### test_func.py
-ˋˋˋ python
+``` python
 def add(x, y):
     return x + y
 
@@ -21,13 +21,13 @@ def test1():
 def test2():
     assert add(1, 3) == 4
 
-ˋˋˋ
+```
 
 
 
-ˋˋˋ bash
+``` bash
 pytest -vv test_func.py
 # or
 pytest
 
-ˋˋˋ
+```
