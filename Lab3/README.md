@@ -1,5 +1,6 @@
 # PyTest tutorial
 * 參考教學影片: https://www.youtube.com/watch?v=CDBcNB2RrvE
+* https://timkuo42.medium.com/pytest%E5%9F%BA%E7%A4%8E%E5%85%A5%E9%96%80%E6%95%99%E5%AD%B8-%E4%B8%8A-3d1ee547f7d
 
 ## pytest enviroment settings
 $ pip install pytest
@@ -31,6 +32,14 @@ pytest 首先會遍歷當前目錄及所有子目錄，根據預設規則（檔�
   ```
 
 只要符合這個命名規則，pytest 就會自動發現並執行這些測試用例，而不需要額外指定。
+
+## Tesr coverage
+``` bash
+# 將 test coverage 資訊顯示在 terminal 上
+pytest --cov -vv
+# 將 test coverage 資訊整理成 report 存放成 html 格式於 htmlcov folder 中，會顯示像是哪幾行 source code 沒有被測試到
+pytest --cov-report html --cov
+```
 
 ## first test
 一個加法函數，並寫該函數的測試方法

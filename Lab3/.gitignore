@@ -1,0 +1,6 @@
+# python
+/sample/__pycache__
+
+# pytest_cov
+/sample/htmlcov
+/sample/.coverage
