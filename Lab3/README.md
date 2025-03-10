@@ -186,3 +186,8 @@ def test_zero_div():
 
 test_zero_div()
 ```
+
+## Branch coverage
+``` bash
+python -m pytest --cov-branch --cov
+```

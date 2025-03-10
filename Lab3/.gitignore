@@ -1,6 +1,9 @@
 # python
 /sample/__pycache__
+/Lab_questions/Lab4.1/__pycache__
 
 # pytest_cov
 /sample/htmlcov
 /sample/.coverage
+/Lab_questions/Lab4.1/htmlcov
+/Lab_questions/Lab4.1/.coverage
