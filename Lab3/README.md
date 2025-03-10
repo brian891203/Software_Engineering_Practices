@@ -191,3 +191,5 @@ test_zero_div()
 ``` bash
 python -m pytest --cov-branch --cov
 ```
+
+## Partition testing
