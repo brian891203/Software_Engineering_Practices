@@ -33,14 +33,6 @@ pytest 首先會遍歷當前目錄及所有子目錄，根據預設規則（檔�
 
 只要符合這個命名規則，pytest 就會自動發現並執行這些測試用例，而不需要額外指定。
 
-## Tesr coverage
-``` bash
-# 將 test coverage 資訊顯示在 terminal 上
-pytest --cov -vv
-# 將 test coverage 資訊整理成 report 存放成 html 格式於 htmlcov folder 中，會顯示像是哪幾行 source code 沒有被測試到
-pytest --cov-report html --cov
-```
-
 ## first test
 一個加法函數，並寫該函數的測試方法
 
@@ -169,4 +161,28 @@ pytest -vv -m g1
 
 # 只測試 g2 組別的測試方法
 pytest -vv -m g2
+```
+
+
+# Lab 3 content
+
+## Test coverage
+``` bash
+# 將 test coverage 資訊顯示在 terminal 上
+pytest --cov -vv
+
+# 將 test coverage 資訊整理成 report 存放成 html 格式於 htmlcov folder 中，會顯示像是哪幾行 source code 沒有被測試到
+pytest --cov-report html --cov
+```
+
+## pytest content manager
+* pytest.raise(Exception)
+``` python
+import pytest
+
+def test_zero_div():
+    with pytest.raises(ZeroDivisionError):
+        1 / 0
+
+test_zero_div()
 ```
