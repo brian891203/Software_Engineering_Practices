@@ -7,80 +7,12 @@
 cat /etc/os-release
 ```
 
-## Remote setup for connecting to vm via ssh in VScode
-* vm connection setting is `NAT`
-* `[STEP1]` vm connecting settings bash(SSH and firewall)
-``` bash
-# setup_ssh.sh
-#!/bin/bash
-
-# 更新系統套件
-echo "Updating system packages..."
-sudo apt update && sudo apt upgrade -y
-
-# 安裝 OpenSSH 伺服器
-echo "Installing OpenSSH Server..."
-sudo apt install -y openssh-server
-
-# 啟動並啟用 SSH 服務
-echo "Starting and enabling SSH service..."
-sudo systemctl start ssh
-sudo systemctl enable ssh
-
-# 檢查 SSH 服務狀態
-echo "Checking SSH service status..."
-sudo systemctl status ssh | grep "active (running)" > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    echo "SSH service is running."
-else
-    echo "SSH service failed to start."
-    exit 1
-fi
-
-# 設定防火牆允許 SSH 連線
-echo "Configuring firewall to allow SSH..."
-sudo ufw allow ssh
-sudo ufw reload
-
-# 確認防火牆設定
-echo "Checking firewall status..."
-sudo ufw status | grep "22/tcp" > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    echo "Firewall is configured to allow SSH."
-else
-    echo "Failed to configure firewall for SSH."
-    exit 1
-fi
-```
-
-* `[STEP2]` show the vm ip, and you can connect it by the host
-``` bash
-ip addr show
-```
-
-## Download git on your server
-``` bash
-sudo apt update
-sudo apt install -y git
-git --version
-```
-
-## git user setting
-``` git bash
-git config --global user.email "your_email@example.com"
-git config --global user.name "Your Name"
-
-git config --global user.email "brian891203@gmail.com"
-git config --global user.name "Brian"
-```
-
-# HW4 content
 ## Important point of caution !!!
 * 為了達成這樣的同步，請在p1.c p2.c p3.c 加入適當的P(),V() 來進行同步。
 切記，你只能用semaphore來達到目標。例如你不能新增一個 printf 來讓 p3 多輸出一行。在printf 的前面以及後面，你只能用semaphore指令 P()，V()。
 * 實驗失敗的process 記得要 Kill 掉，以免嚴重影響系統效能
     * Steps:
-    
+
         1. 查看正在執行的進程: 輸入以下命令，可以列出所有正在執行的進程，然後用 grep 篩選出你感興趣的程式
             ``` perl
             ps aux | grep prog1
@@ -104,7 +36,51 @@ git config --global user.name "Brian"
 
 
 * 執行你的程式之前,記得用ipcrm 確定清除你之前的程式配置的任何 semaphore
-``` nginx
-ipcs -s           # 查看當前系統中的 semaphore 資源
-ipcrm -s [semid]  # 根據 semaphore ID 清除指定的 semaphore
-```
+    ``` nginx
+    ipcs -s           # 查看當前系統中的 semaphore 資源
+    ipcrm -s [semid]  # 根據 semaphore ID 清除指定的 semaphore
+    ```
+
+## HW RUN steps
+1. Compile source code
+    * 根據作業要求，p1.c 為負責創建 semaphore 的程式，因此需要先編譯 p1.c
+        ``` nginx
+        # gcc -o 輸出路徑前綴/輸出檔名 prog1.c sem.c
+        # e.g., gcc -o bin/prog1 prog1.c sem.c
+
+        # gcc -o p1 p1.c sem.c
+        gcc -o bin/p1 p1.c sem.c
+        ```
+    * 同樣 p2.c 與 p3.c 需編譯成執行檔
+        ``` nginx
+        gcc -o p2 p2.c sem.c
+        gcc -o p3 p3.c sem.c
+        ```
+
+2. 清除先前的 semaphore 資源
+    * 在執行新一輪測試前，必須先用以下命令清除先前遺留的 semaphore，此步驟能確保新測試環境不受舊有資源干擾。
+        ``` nginx
+        ipcs -s         # 列出目前系統中的 semaphore 資源
+        ipcrm -s [semid]  # 根據列出的 semaphore ID 清除相應資源
+        ```
+
+3. 啟動程式
+    * 依照要求，啟動程式的順序可能不固定，但必須達到預期同步效果：
+        * p1：作為 semaphore 的創建者，負責初始化 semaphore 並印出第一行訊息。
+        * p2：使用 get_sem() 取得 p1 創建的 semaphore，等待 p1 完成後再印出訊息。
+        * p3：同樣取得 semaphore，等待 p2 完成後印出兩行訊息。
+    * 在 Linux shell 中依次以背景模式執行
+        ``` bash
+        ./p1 &
+        ./p2 &
+        ./p3 &
+        ```
+        即使執行順序不同（如 p1、p3、p2），程式必須藉由 semaphore 協調，最終輸出順序都應該是：
+        ```
+        p1印一行訊息 → p2印一行訊息 → p3印兩行訊息
+        ```
+        並不斷循環。
+
+4. 監控與調整
+    在執行期間，可使用 `ipcs -s` 檢查 `semaphore` 狀態，也可使用 `ps` 或 `jobs` 監控各個程式進程。
+    如果發現有程式一直處於阻塞狀態或無法正常退出，請參考前述步驟手動 kill 掉相關進程，再重新開始測試。
