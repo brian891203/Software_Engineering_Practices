@@ -46,7 +46,8 @@ cat /etc/os-release
     * 根據作業要求，p1.c 為負責創建 semaphore 的程式，因此需要先編譯 p1.c
         ``` nginx
         # gcc -o 輸出路徑前綴/輸出檔名 prog1.c sem.c
-        # e.g., gcc -o bin/prog1 prog1.c sem.c
+        # e.g., gcc -o ../bin/prog1 prog1.c sem.c
+        # gcc -o ../bin/prog2 prog2.c sem.c
 
         # gcc -o p1 p1.c sem.c
         gcc -o bin/p1 p1.c sem.c
@@ -57,12 +58,27 @@ cat /etc/os-release
         gcc -o p3 p3.c sem.c
         ```
 
-2. 清除先前的 semaphore 資源
+2. 清除先前的 semaphore 資源以及失敗的進程
     * 在執行新一輪測試前，必須先用以下命令清除先前遺留的 semaphore，此步驟能確保新測試環境不受舊有資源干擾。
         ``` nginx
         ipcs -s         # 列出目前系統中的 semaphore 資源
         ipcrm -s [semid]  # 根據列出的 semaphore ID 清除相應資源
         ```
+    * 殺掉失敗的進程: 當你找到了失敗進程的 PID 之後，可以使用以下命令來終止進程
+        1. 找到失敗進程
+            ``` perl
+            ps aux | grep prog1
+            ps aux | grep p1
+            ```
+            使用 jobs 命令（如果是在背景啟動的 shell 中）：
+            ``` bash
+            jobs
+            ```
+        2. 殺掉失敗的進程
+            ``` bash
+            kill <PID>
+            ```
+        3. 再次使用 `ps aux | grep [程式名稱]` 檢查是否確實已經終止，也可以使用 `jobs` 命令查看背景工作是否已被清空。
 
 3. 啟動程式
     * 依照要求，啟動程式的順序可能不固定，但必須達到預期同步效果：
