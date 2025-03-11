@@ -64,3 +64,12 @@ sudo apt update
 sudo apt install -y git
 git --version
 ```
+
+## git user setting
+``` git bash
+git config --global user.email "your_email@example.com"
+git config --global user.name "Your Name"
+
+git config --global user.email "brian891203@gmail.com"
+git config --global user.name "Brian"
+```
