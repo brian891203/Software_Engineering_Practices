@@ -73,3 +73,35 @@ git config --global user.name "Your Name"
 git config --global user.email "brian891203@gmail.com"
 git config --global user.name "Brian"
 ```
+
+# HW4 content
+## Important point of caution !!!
+* 為了達成這樣的同步，請在p1.c p2.c p3.c 加入適當的P(),V() 來進行同步。
+切記，你只能用semaphore來達到目標。例如你不能新增一個 printf 來讓 p3 多輸出一行。在printf 的前面以及後面，你只能用semaphore指令 P()，V()。
+* 實驗失敗的process 記得要 Kill 掉，以免嚴重影響系統效能
+    * Steps:
+    1. 查看正在執行的進程: 輸入以下命令，可以列出所有正在執行的進程，然後用 grep 篩選出你感興趣的程式
+    ``` perl
+    ps aux | grep prog1
+    ps aux | grep p1
+    ```
+    使用 jobs 命令（如果是在背景啟動的 shell 中）：
+    ``` bash
+    jobs
+    ```
+    2. 殺掉失敗的進程: 當你找到了失敗進程的 PID 之後，可以使用以下命令來終止進程
+    ``` bash
+    kill <PID>
+
+    # 以下會發送 SIGKILL 信號，強制終止進程，但注意這種方式可能不會讓進程進行資源釋放，所以只在必要時使用
+    # kill -9 <PID>
+    ```
+    這個命令會發送一個 SIGTERM 信號，要求進程正常結束。
+    3. 再次使用 `ps aux | grep [程式名稱]` 檢查是否確實已經終止，也可以使用 `jobs` 命令查看背景工作是否已被清空。
+
+
+* 執行你的程式之前,記得用ipcrm 確定清除你之前的程式配置的任何 semaphore
+``` nginx
+ipcs -s           # 查看當前系統中的 semaphore 資源
+ipcrm -s [semid]  # 根據 semaphore ID 清除指定的 semaphore
+```
