@@ -1,4 +1,4 @@
-# HW4 Process Synchronization
+# HW4
 ## Enviroment
 * 20.04.6 LTS
 

@@ -25,19 +25,15 @@ fi
 
 echo "=== Checking output directory ==="
 # Check if the output directory exists; if not, create it.
-if [ ! -d ../bin ]; then
-    echo "Directory ../bin does not exist. Creating it..."
-    mkdir ../bin
+if [ ! -d bin ]; then
+    echo "Directory bin does not exist. Creating it..."
+    mkdir bin
 fi
 
 echo "=== Compiling programs ==="
 # Compile p1.c, p2.c, and p3.c and link with sem.c, outputting executables to ../bin/
-gcc -o ../bin/p1 p1.c sem.c && echo "p1 compiled successfully" || { echo "p1 compilation failed"; exit 1; }
-gcc -o ../bin/p2 p2.c sem.c && echo "p2 compiled successfully" || { echo "p2 compilation failed"; exit 1; }
-gcc -o ../bin/p3 p3.c sem.c && echo "p3 compiled successfully" || { echo "p3 compilation failed"; exit 1; }
+gcc -o bin/p1 src/p1.c src/sem.c && echo "p1 compiled successfully" || { echo "p1 compilation failed"; exit 1; }
+gcc -o bin/p2 src/p2.c src/sem.c && echo "p2 compiled successfully" || { echo "p2 compilation failed"; exit 1; }
+gcc -o bin/p3 src/p3.c src/sem.c && echo "p3 compiled successfully" || { echo "p3 compilation failed"; exit 1; }
 
 echo "=== All tasks completed ==="
-
-# Change directory to output folder
-cd ../bin
-echo "Now in $(pwd)"
