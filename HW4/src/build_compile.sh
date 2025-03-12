@@ -23,6 +23,13 @@ else
     done
 fi
 
+echo "=== Checking output directory ==="
+# Check if the output directory exists; if not, create it.
+if [ ! -d ../bin ]; then
+    echo "Directory ../bin does not exist. Creating it..."
+    mkdir ../bin
+fi
+
 echo "=== Compiling programs ==="
 # Compile p1.c, p2.c, and p3.c and link with sem.c, outputting executables to ../bin/
 gcc -o ../bin/p1 p1.c sem.c && echo "p1 compiled successfully" || { echo "p1 compilation failed"; exit 1; }
