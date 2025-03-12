@@ -9,12 +9,13 @@ int main(void) {
     semP3 = get_sem(".",'P3');
 
     do {
-        // *** this is where you should place semaphore 
+        // *** this is where you should place semaphore
         P(semP2);
 
         printf("P222222222 is here\n"); i++ ;
        
         // *** this is where you should place semaphore
+        V(semP3);
         V(semP3);
 
     }  while (i < 5);

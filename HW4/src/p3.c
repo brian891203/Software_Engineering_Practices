@@ -11,10 +11,19 @@ int main(void) {
 
     do {
         // *** this is where you should place semaphore
-        P(semP3);
-       
-        printf("P3333333 is here\n"); i++ ;
-       
+        // check for semP2 == 0 and semP3 == 0
+        while (!semP2 && !semP3) {
+            V(semP2);
+        }
+
+        for (int i=0; i<2; i++) {
+            P(semP3);
+
+            printf("P3333333 is here\n");
+        }
+
+        i++;
+
         // *** this is where you should place semaphore
         V(semP1);
    
@@ -28,6 +37,4 @@ int main(void) {
 
     destroy_sem(semP3);
     printf("(p3) semaphore removed\n");
-    
-    return 0;
 }

@@ -3,3 +3,7 @@
 
 # compile output file
 /bin
+
+# test file
+/src/test.c
+/src/test

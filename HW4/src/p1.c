@@ -9,10 +9,13 @@ int main(void) {
     semP1 = create_sem(".",'P1',1);
     semP2 = create_sem(".",'P2',0);
     semP3 = create_sem(".",'P3',0);
-    semP3_2 = create_sem(".",'P3_2',0);
 
     do {
         // *** this is where you should place semaphore 
+        // if (semP1 && semP3) {
+        //     V(semP3_2);
+        // }
+
         P(semP1);
 
         printf("P1111111111 is here\n"); i++;
@@ -21,6 +24,4 @@ int main(void) {
         V(semP2);
 
     }  while (i < 5) ;
-
-    return 0;
 }
