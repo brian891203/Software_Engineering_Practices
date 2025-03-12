@@ -4,6 +4,7 @@
 #include  <sys/types.h>
 #include  <linux/ipc.h>
 #include  <linux/sem.h>
+#include "awk_sem.h"
 
 int semid ;
 int ret ;
