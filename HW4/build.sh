@@ -11,6 +11,11 @@ pkill -f p3 2>/dev/null
 # Pause briefly to allow the system to finish terminating the processes
 sleep 1
 
+echo "=== Cleaning output directory ==="
+# Clear the unlatest output file
+make clean
+sleep 1
+
 echo "=== Clearing semaphores owned by user $USER ==="
 # List semaphores using ipcs -s and use awk to extract the semaphore IDs owned by the current user
 SEM_IDS=$(ipcs -s | awk -v user="$USER" '$3==user {print $2}')
@@ -32,8 +37,6 @@ fi
 
 echo "=== Compiling programs ==="
 # Compile p1.c, p2.c, and p3.c and link with sem.c, outputting executables to ../bin/
-gcc -o bin/p1 src/p1.c src/sem.c && echo "p1 compiled successfully" || { echo "p1 compilation failed"; exit 1; }
-gcc -o bin/p2 src/p2.c src/sem.c && echo "p2 compiled successfully" || { echo "p2 compilation failed"; exit 1; }
-gcc -o bin/p3 src/p3.c src/sem.c && echo "p3 compiled successfully" || { echo "p3 compilation failed"; exit 1; }
+make all
 
 echo "=== All tasks completed ==="

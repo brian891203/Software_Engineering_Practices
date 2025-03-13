@@ -16,11 +16,6 @@ int main(void) {
     }
 
     do {
-        // *** this is where you should place semaphore
-        while(semP1 && !semP2 && !semP3) {
-            V(semP1);
-        }
-
         P(semP2);
 
         printf("P222222222 is here\n"); i++ ;
