@@ -9,10 +9,9 @@
     ```
 
 2. execute script to test the `p1` `p2` `p3` in differnt order.
-    * For example:
-        ``` bash
-        sh run.sh
-        ```
+    ``` bash
+    sh run.sh
+    ```
     * The output result will always be like:
         ```
         Select execution order to test (or 'q' to quit):
