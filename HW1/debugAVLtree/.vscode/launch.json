@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AVLTreeTest",
+            "request": "launch",
+            "mainClass": "AVLTreeTest",
+            "projectName": "debugAVLtree_e680c33"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
