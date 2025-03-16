@@ -23,6 +23,21 @@ class AvlTree {
 		root = insert(data, root);
 	}
 
+	/**
+	 * Overloaded insert method which accepts a String.
+	 * If the input cannot be parsed as an integer, an IllegalArgumentException is thrown.
+	 *
+	 * @param data the data in String form to be inserted into the AVL tree.
+	 */
+	public void insert(String data) {
+		try {
+			int parsedData = Integer.parseInt(data);
+			insert(parsedData);
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException("Input is not a valid integer: " + data, e);
+		}
+	}
+
 	/* Function to get height of node */
 	private int height(AvlNode t) {
 		return t == null ? -1 : t.height;

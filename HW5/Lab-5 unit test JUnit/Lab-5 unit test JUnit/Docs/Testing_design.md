@@ -185,3 +185,241 @@ public class AVLTreeTest {
 5. **Performance Tests**：透過大量數據的測試案例來確認操作的效能（例如使用 @Timeout 限制測試時間）。
 
 這樣的測試設計可以全面驗證 AVL Tree 的正確性、穩定性與效能，滿足大部分測試需求。
+
+## Some example
+以下是一份完整的 unit test 案例，檔案命名為 **AVLtreetest.java**。  
+  
+每個 test method 都依照命名慣例命名，並在註解中詳細說明測試動機、範疇與測試意圖（包含 code coverage、partition testing、boundary tests、negative tests 與 performance tests）。  
+
+```java
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * 測試目標：
+ * 1. 針對 AvlTree 的 public methods 進行單元測試，涵蓋 isEmpty(), makeEmpty(), insert(), countNodes(), search(),
+ *    inorder(), preorder(), postorder() 等。
+ * 2. 測試內容包含：
+ *    - Code Coverage: 讓所有分支（包含旋轉機制）皆能被測試觸及。
+ *    - Partition Testing: 針對不同輸入區間（空樹、單一節點、多節點、重複值）做區隔測試。
+ *    - Boundary Tests: 例如新樹、makeEmpty 後狀態、極端順序插入導致旋轉。
+ *    - Negative Tests: 測試不存在的值查找、重複插入不影響節點數量。
+ *    - Performance Tests: 插入大量節點時能否在合理時間內完成 (O(log n) 插入時間)。
+ */
+public class AVLtreetest {
+
+    /**
+     * Test: isEmpty() - Boundary Test
+     * Given: 一個新建的 AVL tree (空樹)
+     * When: 呼叫 isEmpty()
+     * Then: 預期回傳 true
+     * 
+     * 測試意圖：驗證剛建立的樹為空，符合邊界條件的檢查 (code coverage: 初始狀態)。
+     */
+    @Test
+    public void testIsEmpty_givenNewTree_expectedTrue_byBoundary() {
+        // given: 建立一個空的 AVL tree
+        AvlTree tree = new AvlTree();
+        // when: 檢查樹是否為空
+        // then: 預期回傳 true
+        assertTrue(tree.isEmpty(), "Newly created AVL tree should be empty");
+    }
+
+    /**
+     * Test: insert() 與 search() - Coverage 與 Partition Testing
+     * Given: 在 AVL tree 中依序插入 10, 5, 15
+     * When: 呼叫 search() 查找已插入與未插入的值
+     * Then: 預期 search(10), search(5), search(15) 為 true，而 search(20) 為 false
+     * 
+     * 測試意圖：確認正常插入後能正確搜尋，並對不存在的值進行 negative 測試，同時覆蓋左右子樹分支。
+     */
+    @Test
+    public void testInsertAndSearch_givenInsertedElements_expectedFoundBySearch_byCoverage() {
+        // given: 建立 AVL tree 並插入數值
+        AvlTree tree = new AvlTree();
+        tree.insert(10);
+        tree.insert(5);
+        tree.insert(15);
+        // when: 搜尋已插入的值
+        // then: 應能正確找到這些值
+        assertTrue(tree.search(10), "10 should be found in tree");
+        assertTrue(tree.search(5), "5 should be found in tree");
+        assertTrue(tree.search(15), "15 should be found in tree");
+        // negative test: 搜尋一個不存在的值
+        assertFalse(tree.search(20), "20 should not be found in tree");
+    }
+
+    /**
+     * Test: makeEmpty() - Boundary Test
+     * Given: 非空 AVL tree (插入 10, 5)
+     * When: 呼叫 makeEmpty()
+     * Then: 預期 isEmpty() 回傳 true 且 countNodes() 為 0
+     * 
+     * 測試意圖：檢查 makeEmpty 方法是否能清除所有節點，達到邊界條件下的重置效果。
+     */
+    @Test
+    public void testMakeEmpty_givenNonEmptyTree_expectedEmptyByIsEmpty_byBoundary() {
+        // given: 建立 AVL tree 並插入數值
+        AvlTree tree = new AvlTree();
+        tree.insert(10);
+        tree.insert(5);
+        // when: 呼叫 makeEmpty() 清空樹
+        tree.makeEmpty();
+        // then: 樹應該為空，且節點數為 0
+        assertTrue(tree.isEmpty(), "Tree should be empty after makeEmpty");
+        assertEquals(0, tree.countNodes(), "Node count should be 0 after makeEmpty");
+    }
+
+    /**
+     * Test: countNodes() - Coverage Test
+     * Given: 在 AVL tree 中依序插入一組不重複數值 {10, 20, 30, 40, 50, 25}
+     * When: 呼叫 countNodes()
+     * Then: 預期返回值與插入數量相同
+     * 
+     * 測試意圖：確認 countNodes() 能正確計算樹中節點個數，並檢查在插入多個元素後所有節點都存在 (覆蓋左右子樹遞迴邏輯)。
+     */
+    @Test
+    public void testCountNodes_givenMultipleInsertions_expectedCorrectCount_byCoverage() {
+        // given: 建立 AVL tree 並插入多個數值
+        AvlTree tree = new AvlTree();
+        int[] elements = {10, 20, 30, 40, 50, 25};
+        for (int elem : elements) {
+            tree.insert(elem);
+        }
+        // when: 計算樹中的節點數
+        int count = tree.countNodes();
+        // then: 預期節點數與插入數量一致 (重複值不會重複插入)
+        assertEquals(elements.length, count, "countNodes should equal number of inserted nodes");
+    }
+
+    /**
+     * Test: inorder() traversal - Partition Testing
+     * Given: 在 AVL tree 中以無序順序插入數值 {30, 10, 20, 40, 50}
+     * When: 呼叫 inorder() traversal
+     * Then: 預期返回的字串為排序後結果 "10 20 30 40 50"
+     * 
+     * 測試意圖：檢查中序遍歷是否能回傳正確的排序結果，驗證樹的平衡與遍歷邏輯是否正確。
+     */
+    @Test
+    public void testInorderTraversal_givenAVLTree_expectedSortedOrder_byPartition() {
+        // given: 建立 AVL tree 並以無序順序插入數值
+        AvlTree tree = new AvlTree();
+        int[] elements = {30, 10, 20, 40, 50};
+        for (int elem : elements) {
+            tree.insert(elem);
+        }
+        // when: 執行中序遍歷
+        String inorderResult = tree.inorder();
+        // then: 預期返回排序後的結果
+        assertEquals("10 20 30 40 50", inorderResult, "Inorder traversal should return sorted order");
+    }
+
+    /**
+     * Test: preorder() traversal - Partition Testing (Rotation Coverage)
+     * Given: 插入能夠觸發 LL 旋轉的序列 {30, 20, 10}
+     * When: 呼叫 preorder() traversal
+     * Then: 預期旋轉後的 AVL tree 結構為 root=20, 左子=10, 右子=30，返回 "20 10 30"
+     * 
+     * 測試意圖：藉由插入 30,20,10 使樹進行 LL 旋轉，檢查平衡旋轉是否正確反映在前序遍歷結果中，
+     * 並驗證平衡性調整的 coverage。
+     */
+    @Test
+    public void testPreorderTraversal_givenAVLTree_expectedAVLStructure_byPartition() {
+        // given: 建立 AVL tree 並依序插入觸發 LL 旋轉的數值
+        AvlTree tree = new AvlTree();
+        tree.insert(30);
+        tree.insert(20);
+        tree.insert(10);
+        // when: 執行前序遍歷
+        String preorderResult = tree.preorder();
+        // then: 旋轉後預期的前序結果為 "20 10 30"
+        assertEquals("20 10 30", preorderResult, "Preorder traversal should reflect balanced AVL tree structure after rotations");
+    }
+
+    /**
+     * Test: postorder() traversal - Partition Testing (Rotation Coverage)
+     * Given: 插入能夠觸發 LL 旋轉的序列 {30, 20, 10}
+     * When: 呼叫 postorder() traversal
+     * Then: 預期後序遍歷返回 "10 30 20" (左、右、根)
+     * 
+     * 測試意圖：檢查旋轉後的 AVL tree 後序遍歷結果，確保左右子樹與根的順序正確反映，並達到遞迴調用的 coverage。
+     */
+    @Test
+    public void testPostorderTraversal_givenAVLTree_expectedPostorderOrder_byPartition() {
+        // given: 建立 AVL tree 並依序插入觸發 LL 旋轉的數值
+        AvlTree tree = new AvlTree();
+        tree.insert(30);
+        tree.insert(20);
+        tree.insert(10);
+        // when: 執行後序遍歷
+        String postorderResult = tree.postorder();
+        // then: 預期後序遍歷返回 "10 30 20"
+        assertEquals("10 30 20", postorderResult, "Postorder traversal should reflect correct order after balancing");
+    }
+
+    /**
+     * Test: Performance Test - 插入大量節點
+     * Given: 一個新的 AVL tree 及大量節點 (n = 100000)
+     * When: 依序插入 0 到 n-1 的數值
+     * Then: 確認 countNodes() 返回的節點數與 n 相等，並在限定時間內完成 (5 秒內)
+     * 
+     * 測試意圖：測試在大規模數據插入下，AVL tree 的插入效率是否滿足 O(log n) 的性能要求 (performance test)。
+     */
+    @Test
+    @Timeout(value = 5, unit = TimeUnit.SECONDS)
+    public void testInsertPerformance_givenLargeNumberOfNodes_expectedOlogNPerformance_byPerformance() {
+        // given: 建立 AVL tree 並定義大量節點數量
+        AvlTree tree = new AvlTree();
+        int n = 100000;
+        // when: 依序插入 n 個數值
+        for (int i = 0; i < n; i++) {
+            tree.insert(i);
+        }
+        // then: countNodes() 返回 n，確認所有節點都被正確插入
+        assertEquals(n, tree.countNodes(), "All inserted nodes should be present in the AVL tree");
+    }
+
+    /**
+     * Test: Negative Test - 重複值插入
+     * Given: 在 AVL tree 中連續插入相同的值 (15, 15, 15)
+     * When: 呼叫 countNodes()
+     * Then: 預期只會存在一個節點 (duplicates 不會重複插入)
+     * 
+     * 測試意圖：驗證 AVL tree 在遇到重複值時，能夠正確忽略重複數值，防止重複插入 (negative test)。
+     */
+    @Test
+    public void testInsertDuplicate_givenDuplicateValues_expectedNoIncreaseInCount_byNegative() {
+        // given: 建立 AVL tree 並插入重複數值
+        AvlTree tree = new AvlTree();
+        tree.insert(15);
+        tree.insert(15);  // duplicate
+        tree.insert(15);  // duplicate again
+        // when: 計算節點數
+        int count = tree.countNodes();
+        // then: 只應該存在一個節點
+        assertEquals(1, count, "Duplicates should not be inserted in AVL tree");
+    }
+}
+```
+
+### 測試設計說明
+1. **Code Coverage**  
+   - 每個 public method 都有至少一個 test case 觸及，包含：isEmpty、makeEmpty、insert、countNodes、search 與三種遍歷 (inorder, preorder, postorder)。
+   - 透過不同的測試案例，確保觸及遞迴呼叫與旋轉調整的邏輯分支。
+
+2. **Partition Testing**  
+   - 分別測試空樹、單一節點、與多節點情況下各方法的行為 (例如 inorder 返回排序結果)。
+   - 利用插入特定序列來驗證左右子樹的平衡與旋轉。
+
+3. **Boundary Tests**  
+   - 新樹的 isEmpty()、makeEmpty() 的邊界情況、以及極端順序插入導致旋轉。
+
+4. **Negative Tests**  
+   - 測試查找不存在的數值，以及重複插入數值不影響節點總數。
+
+5. **Performance Tests**  
+   - 利用 @Timeout 標記，測試大量節點插入情境下是否能在限定時間內完成，間接驗證 AVL tree 的性能特性。
+
+這份測試程式可協助檢查 AvlTree 實作是否符合 AVL tree 的規格，並讓助教清楚看到每個測試案例背後的設計思路。
