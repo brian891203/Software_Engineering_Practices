@@ -3,7 +3,7 @@
         "**/node_modules": true,
         "**/coverage": true,
         "*.json": true,
-        "jest.config.js": true,
+        "jest.config.js": false,
         "webpack.config.js": true,
         "jest-setup.ts": true,
         ".gitignore": true,

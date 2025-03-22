@@ -15,7 +15,10 @@ export class WordPuritySystem extends BaseSystem {
         // 添加敏感文字
         this.domPurity.addWord([
             "Copperfield",
-            "Wonderland"
+            "Wonderland",
+            "Lord",
+            "Thrones",
+            "Mockingbird"
         ]);
     }
 
