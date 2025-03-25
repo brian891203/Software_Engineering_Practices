@@ -1,0 +1,146 @@
+- logTimestamp: 0
+  startTimestamp: 1742822270
+  endTimestamp: 1742822270
+  action: null
+  result: 9
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task3
+  taskID: 5IlO6TVpCC6zqWj
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742822266
+  startTimestamp: 1742822270
+  endTimestamp: 1742822270
+  action:
+    set_string_to_clipboard:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 98
+        indent: 0
+        lineNumber: 40
+        params:
+            clipboardContent: chatroom name not reveal "yugioh"
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task3
+  taskID: 5IlO6TVpCC6zqWj
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742822266
+  startTimestamp: 1742822275
+  endTimestamp: 1742822275
+  action:
+    vlp_waiting:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 3
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: 4wayKVH4NOfgOC2l
+                projectname: SEP_term_project
+                taskid: F4k1SscjwGv14R9MG
+                taskname: errorFunction
+                parameters:
+                    - $:{{message}}
+                runtimereturnvariables: []
+        id: 62
+        indent: 0
+        lineNumber: 41
+        params:
+            detectInterval: 0
+            dpi: 1
+            duration: 1
+            errorHandling:
+                maxretrycount: 0
+                currentretrycount: 0
+                retryinterval: 0
+                errorfunctiontype: 0
+                exceptionvariable: ""
+                calltaskparams:
+                    projectid: ""
+                    projectname: ""
+                    taskid: ""
+                    taskname: ""
+                    parameters: null
+                    runtimereturnvariables: []
+            params:
+                - $:{{message}}
+            projectID: 4wayKVH4NOfgOC2l
+            returnVariables: []
+            taskID: F4k1SscjwGv14R9MG
+            timeout: 5
+            untilDisappear: false
+            vlp:
+                doodleID: FindTrgt__V2680
+                inputs:
+                    GBiNlIvZ2d2FA-u-BPuRw:
+                        coordinate:
+                            max:
+                                x: 1006
+                                "y": 146.28125
+                            min:
+                                x: 912
+                                "y": 117.28125
+                        imageName: image26-GBiNlIvZ2d2FA_u_BPuRw.png
+                        size:
+                            x: 94
+                            "y": 29
+                    kk5upR35JQVCAKKKfgmWc: 0.9
+                vlp: ""
+  result: 1
+  message: 'Variable is not found: message'
+  rawData:
+    "": 'Variable is not found: message'
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task3
+  taskID: 5IlO6TVpCC6zqWj
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 0
+  startTimestamp: 1742822275
+  endTimestamp: 1742822275
+  action: null
+  result: 6
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: ""
+  projectID: ""
+  taskName: ""
+  taskID: ""
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""

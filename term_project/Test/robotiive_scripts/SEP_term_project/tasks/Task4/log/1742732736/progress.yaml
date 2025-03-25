@@ -1,0 +1,89 @@
+- logTimestamp: 0
+  startTimestamp: 1742732738
+  endTimestamp: 1742732738
+  action: null
+  result: 9
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task4
+  taskID: 5jKZl6keZYPnun5uw9p
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742732736
+  startTimestamp: 1742732738
+  endTimestamp: 1742732741
+  action:
+    mouse_click:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 26
+        indent: 0
+        lineNumber: 1
+        params:
+            button: 0
+            dpi: 1
+            smoothMove: false
+            vlp:
+                doodleID: FindTrgt__V2680
+                inputs:
+                    GBiNlIvZ2d2FA-u-BPuRw:
+                        coordinate:
+                            max:
+                                x: 994
+                                "y": 778.28125
+                            min:
+                                x: 928
+                                "y": 753.28125
+                        imageName: image22-GBiNlIvZ2d2FA_u_BPuRw.png
+                        size:
+                            x: 66
+                            "y": 25
+                    kk5upR35JQVCAKKKfgmWc: 0.9
+                vlp: ""
+  result: 1
+  message: 'Image Analysis Timeout, Run Doodle Error: Doodle can''t find target'
+  rawData:
+    "": 'Image Analysis Timeout, Run Doodle Error: Doodle can''t find target'
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task4
+  taskID: 5jKZl6keZYPnun5uw9p
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 0
+  startTimestamp: 1742732741
+  endTimestamp: 1742732741
+  action: null
+  result: 6
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: ""
+  projectID: ""
+  taskName: ""
+  taskID: ""
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""

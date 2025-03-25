@@ -1,0 +1,185 @@
+- logTimestamp: 0
+  startTimestamp: 1742805367
+  endTimestamp: 1742805367
+  action: null
+  result: 9
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742805366
+  startTimestamp: 1742805367
+  endTimestamp: 1742805367
+  action:
+    key_press:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 27
+        indent: 0
+        lineNumber: 11
+        params:
+            controlCode: 1
+            keyCode: 0
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742805366
+  startTimestamp: 1742805367
+  endTimestamp: 1742805368
+  action:
+    key_stroke:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 28
+        indent: 1
+        lineNumber: 12
+        params:
+            controlCode: 0
+            controlHoldDuration: 0
+            keyCode: 65
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742805366
+  startTimestamp: 1742805368
+  endTimestamp: 1742805368
+  action:
+    key_stroke:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 26
+        indent: 0
+        lineNumber: 13
+        params:
+            controlCode: 0
+            controlHoldDuration: 0
+            keyCode: 8
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742805366
+  startTimestamp: 1742805368
+  endTimestamp: 1742805368
+  action:
+    typing:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 29
+        indent: 0
+        lineNumber: 14
+        params:
+            convertToASCII: false
+            isSecretText: false
+            message: locahostl:5173
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 0
+  startTimestamp: 1742805368
+  endTimestamp: 1742805368
+  action: null
+  result: 6
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: ""
+  projectID: ""
+  taskName: ""
+  taskID: ""
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""

@@ -1,0 +1,22 @@
+- append_text_file:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 9
+    indent: 0
+    lineNumber: 1
+    params:
+      charset: utf-8
+      content: $:{{errorMessage}} + " "
+      path: C:\Users\aipr\iscool\projects\SEP_term_project\error_message.txt
+      timeout: 5

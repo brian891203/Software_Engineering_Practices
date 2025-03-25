@@ -1,0 +1,161 @@
+// v3 (Final Version)
+// This pipeline is triggered by a GitHub webhook and performs the following steps:
+// 1. Checks out the latest code from the specified GitHub repository and branch.
+// 2. Triggers a separate job to launch the backend service and waits for a few seconds.
+// 3. Updates the frontend by running "npm install", then starts the frontend service (using background execution).
+// 4. Executes automated tests using Robotiive (auto-testing via computer vision).
+// 5. In the post block, regardless of the test outcome, it reads any error logs and reports commit status via GitHub Commit Status API.
+//    If errors exist, it also creates a GitHub Issue.
+// 6. Finally, it triggers a job to shutdown the backend service and cleans up errorlog.txt.
+
+import groovy.json.JsonOutput
+
+pipeline {
+    agent any
+    
+    environment {
+        // Read GitHub Token from Jenkins credentials (ID: GITHUB_TOKEN)
+        GITHUB_TOKEN = credentials('GITHUB_TOKEN')
+    }
+
+    triggers {
+        githubPush()
+    }
+
+    stages {
+        stage('收到 webhook') {
+            steps {
+                echo '【收到 webhook】從 GitHub 拉取最新程式碼'
+                script {
+                    def scmVars = checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: '*/main']],
+                        userRemoteConfigs: [[url: 'https://github.com/brian891203/Duel-Master.git/']]
+                    ])
+                    echo "Commit SHA: ${scmVars.GIT_COMMIT}"
+                    env.GIT_COMMIT = scmVars.GIT_COMMIT
+                }
+            }
+        }
+        
+        stage('啟動後端服務') {
+            steps {
+                echo '【啟動後端】觸發啟動後端服務 Job...'
+                // Trigger backend job (Job name: SEP114-term_project_Backend-hookUpdate)
+                build job: 'SEP114-term_project_Backend-hookUpdate', wait: false
+                echo '等待後端開啟...'
+                bat 'ping -n 21 127.0.0.1 > nul'
+            }
+        }
+        
+        stage('npm Update') {
+            steps {
+                echo '【啟動前端】npm Update...'
+                bat '''
+                    cd /d C:\\Users\\User\\.jenkins\\workspace\\SEP114-term_project_Backend-hookUpdate\\frontend
+                    npm install
+                '''
+                echo 'Wait for 10 sec...'
+                bat 'ping -n 11 127.0.0.1 > nul'
+            }
+        }
+
+        stage('啟動前端服務') {
+            steps {
+                echo '【啟動前端】開始啟動前端服務...'
+                bat '''
+                    cd /d C:\\Users\\User\\.jenkins\\workspace\\SEP114-term_project_Backend-hookUpdate\\frontend
+                    start "FrontendService" /B cmd /c "npm run dev"
+                '''
+                echo 'Wait for 10 sec...'
+                bat 'ping -n 11 127.0.0.1 > nul'
+            }
+        }
+
+        stage('執行測試') {
+            steps {
+                echo '【測試】執行自動測試任務...'
+                // Execute the automated test cases using the Robotiive testing tool.
+                bat '''
+                    @echo off
+                    cd "C:\\Users\\User\\Desktop\\SEP\\Lab2_Auto-testing"
+                    set tasks=Task2 Task3 Task6
+                    for %%T in (%tasks%) do (
+                        echo Running task %%T...
+                        start http://localhost:5173
+                        Robotiive_runner.exe SEP_term_project %%T 2>&1
+                    )
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                echo '【報告】開始回報 Commit Status and Issue...'
+                // Switch to the designated directory where errorlog.txt is located.
+                dir("C:\\Users\\User\\.jenkins\\workspace\\SEP114-term_project_pipeline") {
+                    // Read errorlog.txt content.
+                    def errorContent = ""
+                    if (fileExists("errorlog.txt")) {
+                        errorContent = readFile('errorlog.txt').trim()
+                    }
+                    
+                    // Get the current commit SHA; if not defined, set to "unknown".
+                    def commitSha = env.GIT_COMMIT ?: "unknown"
+                    
+                    // Determine state and description based on errorContent.
+                    def state = errorContent ? "failure" : "success"
+                    def description = errorContent ? "自動化測試失敗，請檢查 errorlog.txt" : "自動化測試成功"
+                    def targetUrl = env.BUILD_URL ?: ""
+                    def context = "jenkins/ci"
+                    
+                    // Create JSON payload using Groovy's JsonOutput.
+                    def payload = groovy.json.JsonOutput.toJson([
+                        state       : state,
+                        target_url  : targetUrl,
+                        description : description,
+                        context     : context
+                    ])
+                    
+                    echo "Commit Status Payload: ${payload}"
+                    
+                    // Write payload to a file.
+                    writeFile file: 'commitStatusPayload.json', text: payload
+                    
+                    // Compose the URL for updating the commit status.
+                    def commitStatusUrl = "https://api.github.com/repos/brian891203/Duel-Master/statuses/${commitSha}"
+                    echo "Commit Status URL: ${commitStatusUrl}"
+                    
+                    // Use curl.exe to update the commit status.
+                    bat "curl.exe -s -H \"Authorization: token %GITHUB_TOKEN%\" -H \"Content-Type: application/json\" -X POST -d @commitStatusPayload.json ${commitStatusUrl}"
+                    
+                    // If errorContent exists, create an Issue.
+                    if (errorContent) {
+                        def issuePayload = groovy.json.JsonOutput.toJson([
+                            title: "自動化測試失敗 - 請檢查 errorlog.txt",
+                            body : "測試失敗，以下是錯誤日誌內容：\n\n" + errorContent
+                        ])
+                        
+                        echo "Issue Payload: ${issuePayload}"
+                        
+                        writeFile file: 'issuePayload.json', text: issuePayload
+                        
+                        bat 'curl.exe -s -H "Authorization: token %GITHUB_TOKEN%" -H "Content-Type: application/json" -X POST -d @issuePayload.json https://api.github.com/repos/brian891203/Duel-Master/issues'
+                    } else {
+                        echo "測試成功，無錯誤日誌，跳過建立 Issue。"
+                    }
+                    
+                    // Clean up errorlog.txt.
+                    bat 'if exist errorlog.txt del errorlog.txt'
+                }
+                
+                echo '【關閉後端】開始觸發關閉後端服務 Job...'
+                // Trigger the backend shutdown job (modify the job name as needed).
+                build job: 'SEP114-term_project_Backend-Shutdown', wait: false
+                echo '所有流程已完成。'
+            }
+        }
+    }
+}

@@ -1,0 +1,432 @@
+- mouse_click:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 26
+    indent: 0
+    lineNumber: 1
+    params:
+      button: 0
+      dpi: 1
+      smoothMove: false
+      vlp:
+        doodleID: FindTrgt__V2680
+        inputs:
+          GBiNlIvZ2d2FA-u-BPuRw:
+            coordinate:
+              max:
+                x: 994
+                "y": 778.28125
+              min:
+                x: 928
+                "y": 753.28125
+            imageName: image22-GBiNlIvZ2d2FA_u_BPuRw.png
+            size:
+              x: 66
+              "y": 25
+          kk5upR35JQVCAKKKfgmWc: 0.9
+        vlp: ""
+- vlp_waiting:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 27
+    indent: 0
+    lineNumber: 2
+    params:
+      detectInterval: 0
+      dpi: 1
+      duration: 1
+      timeout: 5
+      untilDisappear: false
+      vlp:
+        doodleID: FindTrgt__V2680
+        inputs:
+          GBiNlIvZ2d2FA-u-BPuRw:
+            coordinate:
+              max:
+                x: 1053
+                "y": 146.28125
+              min:
+                x: 866
+                "y": 108.28125
+            imageName: image23-GBiNlIvZ2d2FA_u_BPuRw.png
+            size:
+              x: 187
+              "y": 38
+          kk5upR35JQVCAKKKfgmWc: 0.9
+        vlp: ""
+- mouse_click:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 28
+    indent: 0
+    lineNumber: 3
+    params:
+      button: 0
+      dpi: 1
+      smoothMove: false
+      vlp:
+        doodleID: FindTrgt__V2680
+        inputs:
+          GBiNlIvZ2d2FA-u-BPuRw:
+            coordinate:
+              max:
+                x: 65
+                "y": 155.28125
+              min:
+                x: 13
+                "y": 103.28125
+            imageName: image24-GBiNlIvZ2d2FA_u_BPuRw.png
+            size:
+              x: 52
+              "y": 52
+          kk5upR35JQVCAKKKfgmWc: 0.9
+        vlp: ""
+- vlp_waiting:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 29
+    indent: 0
+    lineNumber: 4
+    params:
+      detectInterval: 0
+      dpi: 1
+      duration: 1
+      timeout: 5
+      untilDisappear: false
+      vlp:
+        doodleID: FindTrgt__V2680
+        inputs:
+          GBiNlIvZ2d2FA-u-BPuRw:
+            coordinate:
+              max:
+                x: 323
+                "y": 268.28125
+              min:
+                x: 5
+                "y": 90.28125
+            imageName: image25-GBiNlIvZ2d2FA_u_BPuRw.png
+            size:
+              x: 318
+              "y": 178
+          kk5upR35JQVCAKKKfgmWc: 0.9
+        vlp: ""
+- set_variable:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 30
+    indent: 0
+    lineNumber: 5
+    params:
+      content: 0
+      level: 4
+      type: 2
+      variableName: index
+- while:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 8
+    indent: 0
+    lineNumber: 6
+    params:
+      lhs: $:{{index}}
+      rhs: 20
+      strategy: 2
+- mouse_click:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 9
+    indent: 1
+    lineNumber: 7
+    params:
+      button: 0
+      dpi: 1
+      smoothMove: false
+      vlp:
+        doodleID: FindTrgt__V2680
+        inputs:
+          GBiNlIvZ2d2FA-u-BPuRw:
+            coordinate:
+              max:
+                x: 156
+                "y": 141.28125
+              min:
+                x: 14
+                "y": 106.28125
+            imageName: image26-GBiNlIvZ2d2FA_u_BPuRw.png
+            size:
+              x: 142
+              "y": 35
+          baB_lHyYcQEgcnuY_cJl3:
+            x: 249
+            "y": 123.28125
+          kk5upR35JQVCAKKKfgmWc: 0.9
+          rXKyluG4d8-nqpkm-p50u: true
+        vlp: ""
+- set_variable:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 11
+    indent: 1
+    lineNumber: 8
+    params:
+      content: $:{{index}}+1
+      level: 4
+      type: 2
+      variableName: index
+- mouse_move:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 13
+    indent: 0
+    lineNumber: 9
+    params:
+      dpi: 1
+      smoothMove: false
+      vlp:
+        doodleID: FindTrgt__V2680
+        inputs:
+          GBiNlIvZ2d2FA-u-BPuRw:
+            coordinate:
+              max:
+                x: 311
+                "y": 264.28125
+              min:
+                x: 10
+                "y": 169.28125
+            imageName: image16-GBiNlIvZ2d2FA_u_BPuRw.png
+            size:
+              x: 301
+              "y": 95
+        vlp: ""
+- mouse_scroll_until:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 14
+    indent: 0
+    lineNumber: 10
+    params:
+      delayTime: 0
+      direction: 1
+      dpi: 1
+      ticks: 2
+      timeout: 20
+      vlp:
+        doodleID: FindTrgt__V2680
+        inputs:
+          GBiNlIvZ2d2FA-u-BPuRw:
+            coordinate:
+              max:
+                x: 312
+                "y": 731.28125
+              min:
+                x: 10
+                "y": 639.28125
+            imageName: image38-GBiNlIvZ2d2FA_u_BPuRw.png
+            size:
+              x: 302
+              "y": 92
+        vlp: ""
+- mouse_move:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 34
+    indent: 0
+    lineNumber: 11
+    params:
+      dpi: 1
+      smoothMove: false
+      vlp:
+        doodleID: FindTrgt__V2680
+        inputs:
+          GBiNlIvZ2d2FA-u-BPuRw:
+            coordinate:
+              max:
+                x: 312
+                "y": 561.28125
+              min:
+                x: 11
+                "y": 466.28125
+            imageName: image39-GBiNlIvZ2d2FA_u_BPuRw.png
+            size:
+              x: 301
+              "y": 95
+        vlp: ""
+- delay:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 35
+    indent: 0
+    lineNumber: 12
+    params:
+      delayTime: 1
+- mouse_scroll_until:
+    errorHandling:
+      maxretrycount: 0
+      currentretrycount: 0
+      retryinterval: 0
+      errorfunctiontype: 0
+      exceptionvariable: ""
+      calltaskparams:
+        projectid: ""
+        projectname: ""
+        taskid: ""
+        taskname: ""
+        parameters: []
+        runtimereturnvariables: []
+    id: 32
+    indent: 0
+    lineNumber: 13
+    params:
+      delayTime: 0
+      direction: 1
+      dpi: 1
+      ticks: 2
+      timeout: 20
+      vlp:
+        doodleID: FindTrgt__V2680
+        inputs:
+          GBiNlIvZ2d2FA-u-BPuRw:
+            coordinate:
+              max:
+                x: 314
+                "y": 1029.28125
+              min:
+                x: 10
+                "y": 936.28125
+            imageName: image32-GBiNlIvZ2d2FA_u_BPuRw.png
+            size:
+              x: 304
+              "y": 93
+        vlp: ""

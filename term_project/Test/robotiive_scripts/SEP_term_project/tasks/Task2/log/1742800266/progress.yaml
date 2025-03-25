@@ -1,0 +1,666 @@
+- logTimestamp: 0
+  startTimestamp: 1742800268
+  endTimestamp: 1742800268
+  action: null
+  result: 9
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742800266
+  startTimestamp: 1742800268
+  endTimestamp: 1742800271
+  action:
+    mouse_click:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 10
+        indent: 0
+        lineNumber: 1
+        params:
+            button: 0
+            dpi: 1
+            smoothMove: false
+            vlp:
+                doodleID: FindTrgt__V2680
+                inputs:
+                    GBiNlIvZ2d2FA-u-BPuRw:
+                        coordinate:
+                            max:
+                                x: 994
+                                "y": 778.28125
+                            min:
+                                x: 928
+                                "y": 753.28125
+                        imageName: image0-GBiNlIvZ2d2FA_u_BPuRw.png
+                        size:
+                            x: 66
+                            "y": 25
+                    kk5upR35JQVCAKKKfgmWc: 0.9
+                vlp: ""
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742800266
+  startTimestamp: 1742800271
+  endTimestamp: 1742800274
+  action:
+    vlp_waiting:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 11
+        indent: 0
+        lineNumber: 2
+        params:
+            detectInterval: 0
+            dpi: 1
+            duration: 1
+            timeout: 5
+            untilDisappear: false
+            vlp:
+                doodleID: FindTrgt__V2680
+                inputs:
+                    GBiNlIvZ2d2FA-u-BPuRw:
+                        coordinate:
+                            max:
+                                x: 1053
+                                "y": 146.28125
+                            min:
+                                x: 866
+                                "y": 108.28125
+                        imageName: image1-GBiNlIvZ2d2FA_u_BPuRw.png
+                        size:
+                            x: 187
+                            "y": 38
+                    kk5upR35JQVCAKKKfgmWc: 0.9
+                vlp: ""
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742800266
+  startTimestamp: 1742800274
+  endTimestamp: 1742800276
+  action:
+    mouse_click:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 13
+        indent: 0
+        lineNumber: 3
+        params:
+            button: 0
+            dpi: 1
+            smoothMove: false
+            vlp:
+                doodleID: FindTrgt__V2680
+                inputs:
+                    GBiNlIvZ2d2FA-u-BPuRw:
+                        coordinate:
+                            max:
+                                x: 65
+                                "y": 155.28125
+                            min:
+                                x: 13
+                                "y": 103.28125
+                        imageName: image2-GBiNlIvZ2d2FA_u_BPuRw.png
+                        size:
+                            x: 52
+                            "y": 52
+                    kk5upR35JQVCAKKKfgmWc: 0.9
+                vlp: ""
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742800266
+  startTimestamp: 1742800276
+  endTimestamp: 1742800280
+  action:
+    vlp_waiting:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 15
+        indent: 0
+        lineNumber: 4
+        params:
+            detectInterval: 0
+            dpi: 1
+            duration: 1
+            timeout: 5
+            untilDisappear: false
+            vlp:
+                doodleID: FindTrgt__V2680
+                inputs:
+                    GBiNlIvZ2d2FA-u-BPuRw:
+                        coordinate:
+                            max:
+                                x: 323
+                                "y": 268.28125
+                            min:
+                                x: 5
+                                "y": 90.28125
+                        imageName: image3-GBiNlIvZ2d2FA_u_BPuRw.png
+                        size:
+                            x: 318
+                            "y": 178
+                    kk5upR35JQVCAKKKfgmWc: 0.9
+                vlp: ""
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742800266
+  startTimestamp: 1742800280
+  endTimestamp: 1742800281
+  action:
+    mouse_move:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 16
+        indent: 0
+        lineNumber: 5
+        params:
+            dpi: 1
+            smoothMove: false
+            vlp:
+                doodleID: FindTrgt__V2680
+                inputs:
+                    GBiNlIvZ2d2FA-u-BPuRw:
+                        coordinate:
+                            max:
+                                x: 179
+                                "y": 215.28125
+                            min:
+                                x: 27
+                                "y": 190.28125
+                        imageName: image4-GBiNlIvZ2d2FA_u_BPuRw.png
+                        size:
+                            x: 152
+                            "y": 25
+                vlp: ""
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742800266
+  startTimestamp: 1742800281
+  endTimestamp: 1742800283
+  action:
+    mouse_click:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 18
+        indent: 0
+        lineNumber: 6
+        params:
+            button: 0
+            dpi: 1
+            smoothMove: false
+            vlp:
+                doodleID: FindTrgt__V2680
+                inputs:
+                    GBiNlIvZ2d2FA-u-BPuRw:
+                        coordinate:
+                            max:
+                                x: 310
+                                "y": 238.28125
+                            min:
+                                x: 271
+                                "y": 193.28125
+                        imageName: image5-GBiNlIvZ2d2FA_u_BPuRw.png
+                        size:
+                            x: 39
+                            "y": 45
+                    kk5upR35JQVCAKKKfgmWc: 0.9
+                vlp: ""
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742800266
+  startTimestamp: 1742800283
+  endTimestamp: 1742800286
+  action:
+    vlp_waiting:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 20
+        indent: 0
+        lineNumber: 7
+        params:
+            detectInterval: 0
+            dpi: 1
+            duration: 1
+            timeout: 5
+            untilDisappear: false
+            vlp:
+                doodleID: FindTrgt__V2680
+                inputs:
+                    GBiNlIvZ2d2FA-u-BPuRw:
+                        coordinate:
+                            max:
+                                x: 1020
+                                "y": 154.28125
+                            min:
+                                x: 745
+                                "y": 134.28125
+                        imageName: image6-GBiNlIvZ2d2FA_u_BPuRw.png
+                        size:
+                            x: 275
+                            "y": 20
+                    kk5upR35JQVCAKKKfgmWc: 0.9
+                vlp: ""
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742800266
+  startTimestamp: 1742800286
+  endTimestamp: 1742800287
+  action:
+    mouse_click:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 22
+        indent: 0
+        lineNumber: 8
+        params:
+            button: 0
+            dpi: 1
+            smoothMove: false
+            vlp:
+                doodleID: FindTrgt__V2680
+                inputs:
+                    GBiNlIvZ2d2FA-u-BPuRw:
+                        coordinate:
+                            max:
+                                x: 1082
+                                "y": 200.28125
+                            min:
+                                x: 1041
+                                "y": 177.28125
+                        imageName: image11-GBiNlIvZ2d2FA_u_BPuRw.png
+                        size:
+                            x: 41
+                            "y": 23
+                    kk5upR35JQVCAKKKfgmWc: 0.9
+                vlp: ""
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742800266
+  startTimestamp: 1742800287
+  endTimestamp: 1742800291
+  action:
+    vlp_waiting:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 24
+        indent: 0
+        lineNumber: 9
+        params:
+            detectInterval: 0
+            dpi: 1
+            duration: 1
+            timeout: 5
+            untilDisappear: false
+            vlp:
+                doodleID: FindTrgt__V2680
+                inputs:
+                    GBiNlIvZ2d2FA-u-BPuRw:
+                        coordinate:
+                            max:
+                                x: 322
+                                "y": 269.28125
+                            min:
+                                x: 9
+                                "y": 98.28125
+                        imageName: image9-GBiNlIvZ2d2FA_u_BPuRw.png
+                        size:
+                            x: 313
+                            "y": 171
+                    kk5upR35JQVCAKKKfgmWc: 0.9
+                vlp: ""
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742800266
+  startTimestamp: 1742800291
+  endTimestamp: 1742800293
+  action:
+    mouse_click:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 26
+        indent: 0
+        lineNumber: 10
+        params:
+            button: 0
+            dpi: 1
+            smoothMove: false
+            vlp:
+                doodleID: FindTrgt__V2680
+                inputs:
+                    GBiNlIvZ2d2FA-u-BPuRw:
+                        coordinate:
+                            max:
+                                x: 220
+                                "y": 73.28125
+                            min:
+                                x: 156
+                                "y": 53.28125
+                        imageName: image12-GBiNlIvZ2d2FA_u_BPuRw.png
+                        size:
+                            x: 64
+                            "y": 20
+                    kk5upR35JQVCAKKKfgmWc: 0.9
+                vlp: ""
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742800266
+  startTimestamp: 1742800293
+  endTimestamp: 1742800293
+  action:
+    typing:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 27
+        indent: 0
+        lineNumber: 11
+        params:
+            convertToASCII: false
+            isSecretText: false
+            message: http://localhost:5173/#/
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 1742800266
+  startTimestamp: 1742800293
+  endTimestamp: 1742800293
+  action:
+    key_stroke:
+        errorHandling:
+            maxretrycount: 0
+            currentretrycount: 0
+            retryinterval: 0
+            errorfunctiontype: 0
+            exceptionvariable: ""
+            calltaskparams:
+                projectid: ""
+                projectname: ""
+                taskid: ""
+                taskname: ""
+                parameters: []
+                runtimereturnvariables: []
+        id: 28
+        indent: 0
+        lineNumber: 12
+        params:
+            controlCode: 0
+            controlHoldDuration: 0
+            keyCode: 13
+  result: 0
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: SEP_term_project
+  projectID: 4wayKVH4NOfgOC2l
+  taskName: Task2
+  taskID: kCNYRu7dszpCIP-EQAz
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
+- logTimestamp: 0
+  startTimestamp: 1742800293
+  endTimestamp: 1742800293
+  action: null
+  result: 6
+  message: ""
+  rawData:
+    "": null
+  pipelineName: ""
+  projectName: ""
+  projectID: ""
+  taskName: ""
+  taskID: ""
+  baseImageName: ""
+  previousPipelineStageIsSuccess: false
+  previousPipelineStageProjectName: ""
+  previousPipelineStageTaskName: ""
